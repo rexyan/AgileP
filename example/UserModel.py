@@ -1,14 +1,16 @@
-from tools.AgileP.Types import SizedString, UnsignedInteger, UnsignedFloat
-from tools.AgileP.BaseStruct import APBase
+from Types import SizedString, UnsignedInteger, UnsignedFloat, Bool
+from Central import Agp
 
-class LoginParams(APBase):
+
+class LoginParams(Agp):
     """
     定义期望的数据模型
     """
-    name = SizedString('name', size=8)
-    age = UnsignedInteger('age')
-    salary = UnsignedFloat('salary')
+    name = SizedString(size=8)
+    age = UnsignedInteger(max=100, min=20)
+    salary = UnsignedFloat()
+    admin = Bool()
 
 
-s1 = LoginParams("zhang", 20, 9800.1)
+s1 = LoginParams("zhang", 10, 9800.1, False)
 print(s1.name)

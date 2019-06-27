@@ -1,4 +1,4 @@
-from tools.AgileP.Rule import Typed, Unsigned, MaxSized
+from Rule import Typed, Unsigned, MaxSized
 
 
 class Integer(Typed):
@@ -8,13 +8,6 @@ class Integer(Typed):
     expected_type = int
 
 
-class UnsignedInteger(Integer, Unsigned):
-    """
-    无符号整数
-    """
-    pass
-
-
 class Float(Typed):
     """
     浮点数
@@ -22,18 +15,32 @@ class Float(Typed):
     expected_type = float
 
 
-class UnsignedFloat(Float, Unsigned):
-    """
-    无符号浮点数
-    """
-    pass
-
-
 class String(Typed):
     """
     字符串
     """
     expected_type = str
+
+
+class Bool(Typed):
+    """
+    bool
+    """
+    expected_type = bool
+
+
+class UnsignedInteger(Integer, Unsigned):
+    """
+    无符号整数
+    """
+    pass
+
+
+class UnsignedFloat(Float, Unsigned):
+    """
+    无符号浮点数
+    """
+    pass
 
 
 class SizedString(String, MaxSized):

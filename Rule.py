@@ -17,7 +17,7 @@ class Typed(Descriptor):
 
     def __set__(self, instance, value):
         if not isinstance(value, self.expected_type):
-            raise TypeError('expected ' + str(self.expected_type))
+            raise TypeError(f"{value} The correct format is a {str(self.expected_type)}")
         super().__set__(instance, value)
 
 
@@ -25,19 +25,29 @@ class Unsigned(Descriptor):
     """
     值必须大于 0
     """
+    __slots__ = ["required", "max", "min"]
+
+    def __init__(self, name=None, **opts):
+        pass
+        super().__init__(name, **opts)
+
     def __set__(self, instance, value):
         if value < 0:
-            raise ValueError('Expected >= 0')
+            raise ValueError('Value must be greater than 0')
         super().__set__(instance, value)
 
 
 class MaxSized(Descriptor):
-    """
-    使用 size 指定大小，且值要符合定义时的大小。
-    """
+    _required = ["size"]
+    _optional = ["required"]
+
+    def check_required_field(self):
+        if sorted(self.opts.keys()) != sorted(MaxSized._required):
+            raise TypeError(f'Must contain {MaxSized._required} fields')
+
     def __init__(self, name=None, **opts):
-        if 'size' not in opts:
-            raise TypeError('missing size option')
+        self.opts = opts
+        self.check_required_field()
         super().__init__(name, **opts)
 
     def __set__(self, instance, value):
