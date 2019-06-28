@@ -1,4 +1,4 @@
-from model.validate import *
+from .model.validate import *
 
 
 # Base class. Uses a descriptor to set a value

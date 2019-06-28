@@ -1,9 +1,5 @@
-from model.basic import Integer, String, Float, Bool
-from rule import Unsigned, MaxSized, EmailRule, CHRule, NumberRule, PositiveRule, PositiveIntegerRule, MonthRule, \
-    DayRule, TimeRule, UsernameRule, PasswordRule, PasswordEasyRule, PasswordHardL1Rule, PasswordHardL2Rule, DateRule, \
-    BirthdayRule, BirthdayHardRule, CreditRule, CarcodeRule, QQRule, FaxRule, PhoneCommonRule, PhoneRule, MobileRule, \
-    UrlRule, URLRule, Ipv4AgentRule, Ipv4Rule, Ipv6Rule, JsonHeaderRule, RequestHeaderRule, AllRule
-
+from .basic import Integer, String, Float, Bool
+from ..rule import *
 
 class UnsignedInteger(Integer, Unsigned):
     """

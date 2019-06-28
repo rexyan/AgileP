@@ -1,4 +1,4 @@
-from rule import Typed
+from ..rule import Typed
 
 
 class Integer(Typed):

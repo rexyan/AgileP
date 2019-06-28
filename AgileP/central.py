@@ -1,5 +1,5 @@
 import copy
-from rule import Descriptor
+from .rule import Descriptor
 
 
 class CheckedMeta(type):
