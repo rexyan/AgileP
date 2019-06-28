@@ -1,4 +1,5 @@
-from Rule import Descriptor
+import copy
+from rule import Descriptor
 
 
 class CheckedMeta(type):
@@ -30,4 +31,9 @@ class Agp(metaclass=CheckedMeta):
         if kwargs:
             raise TypeError(f'parameter {kwargs} beyond range')
 
-
+        instance_dict = self.__dict__
+        result = copy.deepcopy(instance_dict)
+        for name in instance_dict:
+            if name.startswith("_"):
+                result.pop(name)
+        self.values = result
