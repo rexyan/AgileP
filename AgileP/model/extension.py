@@ -59,7 +59,7 @@ class Positive(PositiveRule):
 
 class PositiveInteger(PositiveIntegerRule):
     """
-    正数
+    正整数
     """
     pass
 

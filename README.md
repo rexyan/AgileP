@@ -46,6 +46,49 @@ print(P3.values)
 
 
 
+### 类型
+
+| 名称            | 描述       | 示例|
+| --------------- | ---------- ||
+| UnsignedInteger | 无符号整数 ||
+| UnsignedFloat | 无符号浮点数 ||
+| SizedString | 指定长度的字符串 ||
+| Email | 邮箱 ||
+| Bool | 无符号整数 ||
+| CH | 纯文字 ||
+| Number | 正负数，小数 ||
+| Positive | 正数 ||
+| PositiveInteger | 正整数 ||
+| Month | 月份 ||
+| Day | 天数 ||
+| Time | 时间 ||
+| Username | 长度至少为1，包含大小写字母、数字、_、- ||
+| Password | 大小写字母或数字，长度至少6位 ||
+| PasswordEasy | 6到16位的任意（除开斜线） ||
+| PasswordHardL1 | 数字 + 字母（大写或小写） + 长度6到12位 ||
+| PasswordHardL2 | 数字 + 字母（大写和小写） + 长度6到12位 ||
+| Date | 日期 ||
+| Birthday | 生日 ||
+| BirthdayHard | 生日 ||
+| Credit | 银行卡 ||
+| Carcode | 车牌号 ||
+| QQ | QQ号码 ||
+| PhoneCommon |  ||
+| Fax | 传真 ||
+| PhoneCommon |  ||
+| Phone |  ||
+| Mobile| 手机 ||
+| Url|  ||
+| URL|  ||
+| Ipv4Agent| ipv4私有地址 ||
+| Ipv4| ipv4地址 ||
+| Ipv6| ipv6地址 ||
+| JsonHeader| json_header ||
+| RequestHeader| request_header ||
+| All| 所有 ||
+
+
+
 ### 规划
 
 + [x] 去除字段类型中的名称 
