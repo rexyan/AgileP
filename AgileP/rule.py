@@ -9,6 +9,12 @@ class Descriptor:
             setattr(self, key, value)
 
     def __set__(self, instance, value):
+        if hasattr(self, "required"):
+            if getattr(self, "required") == True:  # 如果有 required，且为 True
+                raise ValueError(f"{self.name} is required!")
+            else:
+                pass
+
         instance.__dict__[self.name] = value
 
 
@@ -46,13 +52,13 @@ class Unsigned(Descriptor):
 
 class MaxSized(Descriptor):
     def __init__(self, name=None, **opts):
-        if 'size' not in opts:
+        if 'length' not in opts:
             raise TypeError('missing size option')
         super().__init__(name, **opts)
 
     def __set__(self, instance, value):
-        if len(value) >= self.size:
-            raise ValueError('size must be < ' + str(self.size))
+        if len(value) >= self.length:
+            raise ValueError('size must be < ' + str(self.length))
         super().__set__(instance, value)
 
 
